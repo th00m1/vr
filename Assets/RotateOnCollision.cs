@@ -9,14 +9,16 @@ public class RotateOnCollision : MonoBehaviour
 
     private bool shouldRotate = false;
 
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        // Check for a key press (e.g., the space bar)
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(collision.gameObject.CompareTag("chest_key"))
         {
             shouldRotate = true;
         }
+    }
 
+    void Update()
+    {
         // Rotate the GameObject if shouldRotate is true and hasn't reached -50 degrees on Z-axis
         if (shouldRotate && transform.eulerAngles.z > 310 || transform.eulerAngles.z <= 0) // 310 degrees in Unity's rotation system is equivalent to -50 degrees
         {
