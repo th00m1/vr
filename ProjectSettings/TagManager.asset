@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - anchor
+  - chest_key
+  - bottom_chest
   layers:
   - Default
   - TransparentFX
