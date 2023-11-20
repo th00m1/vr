@@ -220,7 +220,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_UpVectorAngles.Reset();
             m_ForwardVectorAngles.Reset();
 
-            UpdateBaseKnobRotation();
+            UpdateBaseKnobRotation();   
             UpdateRotation(true);
         }
 
