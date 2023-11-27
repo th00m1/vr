@@ -9,6 +9,7 @@ public class PadlockPassword : MonoBehaviour
     public GameObject FourthPadlock;
     public GameObject door;
     public int[] Password = { 1, 2, 3, 4 };
+    public int tolerance = 17; // 360/ 10 chiffres / 2 = 17
     
     private bool IsSolved = false;
     private int firstNumber;
@@ -42,25 +43,25 @@ public class PadlockPassword : MonoBehaviour
 
         if(currentFirstRotation != previousFirstRotation)
         {
-            firstNumber = GetNumberFromAngle(currentFirstRotation.y, 5);
+            firstNumber = GetNumberFromAngle(currentFirstRotation.y, tolerance);
             previousFirstRotation = currentFirstRotation;
         }
 
         if(currentSecondRotation != previousSecondRotation)
         {
-            secondNumber = GetNumberFromAngle(currentSecondRotation.y, 5);
+            secondNumber = GetNumberFromAngle(currentSecondRotation.y, tolerance);
             previousSecondRotation = currentSecondRotation;
         }
 
         if(currentThirdRotation != previousThirdRotation)
         {
-            thirdNumber = GetNumberFromAngle(currentThirdRotation.y, 5);
+            thirdNumber = GetNumberFromAngle(currentThirdRotation.y, tolerance);
             previousThirdRotation = currentThirdRotation;
         }
 
         if(currentFourthRotation != previousFourthRotation)
         {
-            fourthNumber = GetNumberFromAngle(currentFourthRotation.y, 5);
+            fourthNumber = GetNumberFromAngle(currentFourthRotation.y, tolerance);
             previousFourthRotation = currentFourthRotation;
         }
 
