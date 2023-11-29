@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChestOpen : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class ChestOpen : MonoBehaviour
         if (other.transform == keyTransform)
         {
             keyInTrigger = false;
+            Invoke("ReloadScene", 15f);
         }
     }
 
@@ -48,6 +50,15 @@ public class ChestOpen : MonoBehaviour
             // Rotate the chest lid here as needed
             transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
         }
+    }
+    
+    void ReloadScene()
+    {
+        // Get the current scene index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Reload the current scene
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
 
